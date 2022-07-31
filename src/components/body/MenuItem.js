@@ -1,17 +1,17 @@
 import {Card, CardImg, CardImgOverlay, CardBody, CardTitle} from 'reactstrap'
 
 function MenuItem(props) {
-    console.log(props)
     return ( 
         <div>
-            <Card style={{margin: "10px"}}>
+            {props? <Card style={{margin: "10px"}}>
                 <CardBody>
                     <CardImg  width='100%' alt={props.plants.name} src={props.plants.image}/>
                     <CardImgOverlay>
-                        <CardTitle style={{color: 'white'}}>{props.plants.name}</CardTitle>
+                        {props? <CardTitle onClick={props.onPlantSelect} style={{color: 'white', cursor: 'pointer'}}>{props.plants.name}</CardTitle> : null}
                     </CardImgOverlay>
                 </CardBody>
             </Card>
+            : null}
         </div>
      );
 }
